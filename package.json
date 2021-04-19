@@ -1,0 +1,28 @@
+{
+  "name": "server",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node -r dotenv/config -r esm ./bin/www",
+    "dev": "nodemon -r dotenv/config -r esm ./bin/www",
+    "migrate": "node -r dotenv/config -r esm ./bin/migrate.js dotenv_config_path=.env.prodaction",
+    "migrate-dev": "node -r dotenv/config -r esm ./bin/migrate.js"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "morgan": "~1.9.1",
+    "yarn": "^1.22.10"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.13.14",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.23.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "esm": "^3.2.25",
+    "http-errors": "^1.8.0",
+    "nodemon": "^2.0.7"
+  }
+}
