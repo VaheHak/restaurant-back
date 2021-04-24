@@ -44,8 +44,6 @@ const operatorsAliases = {
   $col: Op.col,
 };
 
-console.log(DB_NAME, DB_USER);
-
 const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
   host: DB_HOST,
   port: DB_PORT,

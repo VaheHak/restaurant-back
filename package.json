@@ -3,16 +3,29 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node -r dotenv/config -r esm ./bin/www",
-    "dev": "nodemon -r dotenv/config -r esm ./bin/www",
-    "migrate": "node -r dotenv/config -r esm ./bin/migrate.js dotenv_config_path=.env.prodaction",
-    "migrate-dev": "node -r dotenv/config -r esm ./bin/migrate.js"
+    "start": "node -r esm -r dotenv/config ./bin/www",
+    "dev": "nodemon -r esm -r dotenv/config ./bin/www",
+    "migrate": "node -r esm -r dotenv/config  ./bin/migrate.js dotenv_config_path=.env.prodaction",
+    "migrate-dev": "node -r esm -r dotenv/config ./bin/migrate.js"
   },
   "dependencies": {
+    "bluebird": "^3.7.2",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
     "express": "~4.16.1",
+    "joi": "^17.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "md5": "^2.3.0",
     "morgan": "~1.9.1",
+    "multer": "^1.4.2",
+    "mysql2": "^2.2.5",
+    "node-input-validator": "^4.4.1",
+    "nodemailer": "^6.5.0",
+    "sequelize": "^6.6.2",
+    "uuid": "^8.3.2",
     "yarn": "^1.22.10"
   },
   "devDependencies": {
@@ -21,7 +34,6 @@
     "eslint": "^7.23.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
-    "esm": "^3.2.25",
     "http-errors": "^1.8.0",
     "nodemon": "^2.0.7"
   }

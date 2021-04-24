@@ -1,6 +1,6 @@
 import {Model, DataTypes} from 'sequelize';
 import md5 from 'md5';
-import db from '../services/db';
+import db from '../config/db';
 
 class Users extends Model {
     static passwordHash = (pass) => md5(md5(`${pass}_test`))
@@ -20,6 +20,25 @@ Users.init({
         type: DataTypes.STRING,
         allowNull: false,
     },
+    phone: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    roleId: {
+        type: DataTypes.BIGINT.UNSIGNED,
+        allowNull: false,
+        defaultValue: 2,
+    },
+    activation_code: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: 'active_code',
+    },
+    status: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: "pending",
+    },
     email: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -33,15 +52,6 @@ Users.init({
         },
         get() {
             return undefined;
-        },
-    },
-    avatar: {
-        type: DataTypes.STRING,
-        allowNull: true,
-        get() {
-            const userId = this.getDataValue('id');
-            const avatar = this.getDataValue('avatar');
-            return `${global.serverUrl}/images/${userId}/${avatar}`;
         },
     },
 }, {

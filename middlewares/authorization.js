@@ -3,6 +3,11 @@ import jwt from 'jsonwebtoken';
 const { JWT_SECRET } = process.env;
 const EXCLUDE = [
   '/users/login',
+  '/users/register',
+  '/users/userConfirm',
+  // '/menus',
+  // '/restaurant',
+  // '/users',
 ];
 
 export default function authorization(req, res, next) {
